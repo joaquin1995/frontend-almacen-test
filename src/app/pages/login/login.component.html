@@ -1,0 +1,136 @@
+<div class="container-fluid p-0">
+
+<!-- <app-snow amount="200"></app-snow> -->
+
+  <div class="row g-0">
+
+      <div class="col-xl-9 p-4 bg-primary">
+        <div class="row align-items-center h-100 px-5">
+          <img class="img-fluid" src="assets/images/logos/logo_scz_header.png">
+        </div>
+          <!-- <div class="auth-full-bg pt-lg-5 p-4">
+              <div class="w-100">
+                  <div class="bg-overlay"></div>
+                  <div class="d-flex h-100 flex-column">
+
+                      <div class="p-4 mt-auto">
+                          <div class="row justify-content-center">
+                              <div class="col-lg-7">
+                                  <div class="text-center">
+                                      <h4 class="mb-3"><i
+                                              class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span
+                                              class="text-primary">5k</span>+ Satisfied clients</h4>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+      </div>
+      <!-- end col -->
+
+      <div class="col-xl-3">
+          <div class="auth-full-page-content p-md-5 p-4">
+              <div class="w-100">
+
+                  <div class="d-flex flex-column h-100">
+                      <!-- <div class="mb-4 mb-md-5">
+                          <a routerLink="/" class="d-block auth-logo">
+                              <img src="assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
+                              <img src="assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
+                          </a>
+                      </div> -->
+                      <div class="my-auto">
+
+                          <div class="text-center">
+                              <h5 class="text-primary">Bienvenido al Sistema de</h5>
+                              <h2 class="text-primary fw-bold">Gerencia de Proyecto - SGP  </h2>
+                              <!-- <p class="text-muted mb-0">Vida por mas Vidas</p> -->
+                              <div class="d-flex justify-content-center align-items-center border-0">
+                                <ng-lottie
+                                    [options]="{path: '/assets/lottiefiles/sgp.json'}"
+                                    width="200px"
+                                    >
+                                </ng-lottie>
+                              </div>
+                          </div>
+
+                          <div>
+                            <!--   -->
+                            <!--  -->
+
+                              <form [formGroup]="forma"(ngSubmit)="onSubmit()">
+
+                                <app-input-text label="Usuario" formControlName="cuenta" autocomplete="on"  placeholder="Ingrese su Usuario"></app-input-text>
+
+                                  <!-- <div class="mb-3">
+                                      <label>Usuario</label>
+                                      <input type="email" class="form-control" name="username" formControlName="cuenta"
+                                        placeholder="Ingrese su Usuario" autocomplete="on"
+                                        [class.is-invalid] ="f['cuenta'].invalid && f['cuenta'].touched"
+                                        [class.is-valid] ="f['cuenta'].valid && f['cuenta'].touched"
+                                        >
+                                      <div *ngIf="f['cuenta'].touched && f['cuenta'].hasError('required')" class="invalid-tooltip">
+                                        <span>*Requerido</span>
+                                      </div>
+                                  </div> -->
+
+                                <app-input-password label="Contraseña" placeholder="Ingrese su Contraseña" autocomplete="on"  formControlName="contrasena"></app-input-password>
+                                  <!-- <div class="mb-3">
+                                      <label for="userpassword">Contraseña</label>
+
+                                      <div class="input-group auth-pass-inputgroup">
+                                          <input type="password" name="password" autocomplete="on" class="form-control" formControlName="contrasena"
+                                              placeholder="Ingrese su Contraseña"
+                                              [type]="showPassword ? 'text': 'password'"
+                                              [class.is-invalid] ="f['contrasena'].invalid && f['contrasena'].touched"
+                                              [class.is-valid] ="f['contrasena'].valid && f['contrasena'].touched"
+                                              >
+                                          <button (click)="togglePasswordMode()" class="btn btn-secondary " type="button"  [ngbTooltip]="'Mostrar/Ocultar Contraseña'" [placement]="'left'"><i
+                                                  class="{{passwordIcon}}"></i></button>
+                                          <div *ngIf="f['contrasena'].touched && f['contrasena'].hasError('required')" class="invalid-tooltip">
+                                            <span>*Requerido</span>
+                                          </div>
+                                      </div>
+                                  </div> -->
+                                  <div *ngIf="this.errorLoginText" class="alert alert-danger mt-4" role="alert">
+                                    {{this.errorLoginText}}
+                                  </div>
+
+                                  <!-- <button type="button" class="btn btn-danger btn-material"> asdasd</button> -->
+
+
+                                  <!-- <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" id="remember-check">
+                                      <label class="form-check-label" for="remember-check">
+                                          Remember me
+                                      </label>
+                                  </div> -->
+
+                                  <div class="mt-4 d-grid">
+                                      <button class="btn btn-primary btn-block btn-material" type="submit">
+                                        <i class="bx bx-log-in-circle"></i> Ingresar
+                                      </button>
+                                  </div>
+
+
+
+
+                              </form>
+                          </div>
+                      </div>
+
+                      <div class="mt-4 mt-md-4 text-center">
+                          <p class="mb-0">© {{year}} SGP - GAD v1.0.0 - Dirección de Tecnología e Innovación </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- end col -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end container-fluid -->

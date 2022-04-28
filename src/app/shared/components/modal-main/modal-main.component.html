@@ -1,0 +1,16 @@
+<div class="modal-header modal-header-sm">
+    <h5 class="card-title pull-left "><i class="bx bxs-{{iconoTitulo}}"></i> {{tituloModal}}</h5>
+        <a  (click)="this.cerrarModal()" class="close"></a>
+</div>
+<div class="modal-body mx-2">
+    <ng-content></ng-content>
+</div>
+
+<div class="modal-footer modal-footer-sm">
+    <button (click)="this.funcionAceptar.emit()"  type="submit" class="btn btn-primary btn-material mr-3" appSkin>
+        <i class="fa fa-save"></i> Aceptar
+    </button>
+    <button (click)="this.cerrarModal()" type="button" class="btn btn-material btn-secondary" >
+        <i class="fa fa-ban"></i> Cancelar
+    </button>
+</div>

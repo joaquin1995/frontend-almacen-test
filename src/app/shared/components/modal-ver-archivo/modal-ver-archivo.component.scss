@@ -1,0 +1,28 @@
+.font-25{
+  font-size: 20px;
+}
+
+.class-flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: space-between;
+}
+
+@media screen and (max-width: 468px) {
+  .class-flex{
+    flex-direction: column;
+  }
+
+  .bg{
+    margin-left: unset !important;
+    margin-bottom: 3px !important;
+    padding-top: 5px !important;
+  }
+
+  .bottom-archivo{
+    margin-bottom: 3px !important;
+  }
+}
+
+

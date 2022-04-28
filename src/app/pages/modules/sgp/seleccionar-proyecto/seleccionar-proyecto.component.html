@@ -1,0 +1,230 @@
+<div id="layout-wrapper">
+
+  <header id="page-topbar">
+    <div class="navbar-header">
+      <div class="d-flex">
+        <!-- LOGO -->
+        <div class="navbar-brand-box">
+          <a routerLink="/" class="logo logo-dark">
+            <span class="logo-sm">
+              <img src="assets/images/logos/logo_sm_scz_header.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+              <img src="assets/images/logos/logo_scz_header.png" alt="" height="17">
+            </span>
+          </a>
+
+          <a routerLink="/" class="logo logo-light">
+            <span class="logo-sm">
+              <img src="assets/images/logos/logo_sm_scz_header.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+              <img src="assets/images/logos/logo_scz_header.png" alt="" height="50">
+              <!-- <img src="assets/images/logo-light.png" alt="" height="19"> -->
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex">
+
+
+        <div class="dropdown d-inline-block" ngbDropdown>
+          <button type="button" class="btn header-item" ngbDropdownToggle id="page-header-user-dropdown">
+            <img class="rounded-circle header-profile-user" src="assets/images/users/default-user.jpg" alt="Avatar">
+            <span class="d-none d-xl-inline-block ms-1">{{user.usuario | lowercase}}</span>
+            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+              <a class="dropdown-item" href="javascript: void(0);"><i
+                class="bx bx-key font-size-16 align-middle me-1"></i>Cambiar Contraseña</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="javascript: void(0);" (click)="logout()"><i
+                class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+            Cerrar Sesión</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </header>
+</div>
+
+
+
+
+<section class="my-5 pt-5">
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-12">
+        <div class="home-wrapper">
+          <div class="row justify-content-center">
+            <app-main-container
+              (recargarChange)="reload()"
+              [col]="'col-md-12'"
+              [icon]="'bx bxs-edit'"
+              [titulo]="'Seleccionar Proyecto'"
+              [descripcion]="'Selecciona un Proyecto en el Sistema'"
+            >
+              <form autocomplete="off" [formGroup]="this.forma">
+                <div class="contenedor">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="card border border-gad03">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">AREA</h4>
+
+                            <div class="container p-0">
+                              <div class="row g-2">
+
+                                <div class="col-sm-6">
+                                  <label class="ms-2">Gestion</label>
+
+                                  <ng-select
+                                    class="custom"
+                                    formControlName="gestion"
+                                    name="gestion"
+                                    [items]="this.arrayGestion"
+                                    bindLabel="gestion"
+                                    bindValue="gestion"
+                                    [loading]="false"
+                                    placeholder="Seleccione Gestion"
+                                    notFoundText="No se encontraron items"
+                                  >
+
+                                  </ng-select>
+
+                                  <small
+                                    class="text-danger"
+                                    *ngIf="
+                                      forma.get('gestion').touched &&
+                                      forma.get('gestion').hasError('required')
+                                    "
+                                  >
+                                    *Requerido
+                                  </small>
+                                </div>
+
+                                <div class="col-sm-6">
+                                  <label class="ms-2">Proyecto</label>
+
+                                  <app-select-custom-template
+                                    formControlName="nsec_proyecto"
+                                    [arrayObjeto]="this.arrayProyecto"
+                                    [formControl]="this.forma.get('nsec_proyecto')"
+                                    [placeholder]="'Seleccione el Proyecto'"
+                                    [loading]="false"
+                                    [labelCustom]="'nombre_categoria_programatica'"
+                                    [arrayMostrarBuscarPropiedad]="[
+                                      {propiedad: 'nombre_categoria_programatica', titulo: null, bandera_mostrar: false, bandera_buscar: true}
+                                      , {propiedad: 'categoria_programatica', titulo: 'Cat. Progr.', bandera_mostrar: true, bandera_buscar: true}
+                                      , {propiedad: 'codigo_sisin', titulo: 'Cód. Sisin', bandera_mostrar: true, bandera_buscar: true}
+                                    ]"
+                                  >
+
+                                  </app-select-custom-template>
+
+                                  <!-- <ng-select
+                                    class="custom"
+                                    formControlName="nsec_proyecto"
+                                    name="nsec_proyecto"
+                                    [items]="arrayProyecto"
+                                    bindLabel="nombre_categoria_programatica"
+                                    bindValue="num_sec"
+                                    [loading]="false"
+                                    placeholder="Seleccione el Proyecto"
+                                    notFoundText="Ningún proyecto Asignado"
+                                  >
+                                  </ng-select> -->
+
+                                </div>
+
+
+                              </div>
+                            </div>
+
+                            <div class="mt-4 d-flex align-items-end justify-content-end">
+                              <button
+                                class="
+                                  btn btn-material
+                                  invertido-btn-primary
+                                  align-bottom
+                                "
+                                (click)="this.elegirProyecto()"
+                              >
+                                <!-- <i class="bx bx-plus"></i> -->
+                                <i class="bx bx-log-in-circle"></i>
+                                Ir a Formularios
+                              </button>
+                            </div>
+
+                        </div>
+                      </div>
+                    </div>
+                     <div class="col-md-4">
+
+                      <div class="card overflow-hidden">
+                        <div class="bg-gad03 bg-soft">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="text-white p-3">
+                                        <h5 class="text-white">Bienvenido de Nuevo !</h5>
+                                        <p>Sistema SGP</p>
+                                    </div>
+                                </div>
+                                <div class="col-5 align-self-end">
+                                    <!-- <img src="assets/images/verification-img.png" alt="" class="img-fluid"> -->
+                                    <ng-lottie
+                                    [options]="{path: '/assets/lottiefiles/sgp.json'}"
+                                    width="120px"
+                                    >
+                                </ng-lottie>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="avatar-md profile-user-wid mb-4">
+                                        <img src="assets/images/users/default-user.jpg" alt="" class="img-thumbnail rounded-circle">
+                                    </div>
+                                    <h5 class="font-size-15 ">Nombre y Apellido :</h5>
+                                    <p class="text-muted mb-0 ">{{user.nombre_usuario}}</p>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="pt-4">
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h5 class="font-size-15">Usuario :</h5>
+                                                <p class="text-muted mb-0">{{user.usuario }}</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h5 class="font-size-15">Perfil :</h5>
+                                                <p class="text-muted mb-0">{{user.rol}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                     </div>
+
+                  </div>
+
+                </div>
+              </form>
+            </app-main-container>
+          </div>
+
+          <!-- end row -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

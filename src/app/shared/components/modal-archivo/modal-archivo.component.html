@@ -1,0 +1,56 @@
+<app-modal-main
+[iconoTitulo]="'cog'"
+[tituloModal]="'Subir Archivo'"
+(funcionAceptar)="validar()"
+>
+
+<form [formGroup]="forma">
+
+  <div class="form-group">
+
+    <div class="col-md-12 mb-3">
+      <label for="nombreArchivo">Nombre del Archivo</label>
+      <input type="text" class="form-control"
+      formControlName="nombre"
+      [class.is-invalid] ="f['nombre'].invalid && f['nombre'].touched"
+      [class.is-valid] ="f['nombre'].valid && f['nombre'].touched"
+       placeholder="Nombre del Archivo">
+       <small *ngIf="f['nombre'].touched && f['nombre'].hasError('required')" class="text-danger"> *Requerido</small>
+
+
+    </div>
+
+      <div class="col-md-12 mb-3">
+
+          <label>Seleccione el archivo</label>
+
+          <div class="custom-file">
+              <ng-container >
+                  <app-archivo-uploader formControlName="archivo"></app-archivo-uploader>
+              </ng-container>
+
+              <ng-template #subirArchivo>
+                  <!-- <button (click)="this.traerArhivoPorNombre(this.nombre_archivo_adjunto)" appSkin="true" class="btn btn-secondary mr-3" type="button"><i class="fa fa-file-text-o"></i> Ver Archivo Adjunto</button> -->
+                  <button  class="btn btn-warning text-white" tooltip="Cambiar Archivo"><i class="fa fa-refresh"></i></button>
+              </ng-template>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- <button type="submit" class="btn btn-block" appSkin><i class="fa fa-save"></i> Aceptar</button>
+  <button type="button" class="btn btn-secondary btn-block" (click)="bsModalRef.hide()"><i class="fa fa-ban"></i> Cancelar</button> -->
+
+
+  <!-- <hr>
+  <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+  <pre>
+  {{ forma.value | json }}
+</pre> -->
+</form>
+
+</app-modal-main>

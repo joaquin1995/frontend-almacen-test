@@ -1,0 +1,614 @@
+<table width="95%" class="text-center"  cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="5" class="Cuadro2">
+        <div class="text-end">Porcentaje Plurianual Programado:</div>
+      </td>
+      <td class="Cuadro2">
+        <div class="text-center">200.00 % <img src="assets/images/level/bullet_red.gif" width="16" height="16" ></div>
+      </td>
+    </tr>
+    <tr>
+      <td width="20" class="Cuadro10">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgFase"><img src="assets/images/level/app_put.gif" width="16" height="16"
+               alt="Agregar Fase"></a></div> -->
+              <button (click)="nuevaFase()" class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+
+      </td>
+      <td width="20" class="Cuadro10"></td>
+      <td width="20" class="Cuadro10"></td>
+      <td width="30	" class="Cuadro10">
+        <div class="text-center">Nivel</div>
+      </td>
+      <td width="35%" class="Cuadro10">
+        <div class="text-center">Descripción</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Fas/Proy</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Eta/Fas</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Comp/Eta</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Act/Comp</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Tar/Act</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgEtapa&amp;qFase=1603"><img src="assets/images/level/app_put.gif"
+              width="16" height="16"  alt="Agregar Etapa"></a></div> -->
+              <button (click)="nuevaFase()" class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro11">
+        <button (click)="modificarFase()" class="btn btn-sm fa-2x" >
+          <i class="bx bxs-edit text-primary"></i>
+        </button>
+        <!-- <div align="left"><img style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+            alt="Cambiar Ponderación"
+            onclick="javascript:vValor=jsDato('Ingrese la ponderación de la Fase','100.00');NewWindow('cg12p_plurianual.asp?cmd=cmd_EditFase&amp;qFase=1603&amp;qPondera=' + vValor,'_self',0,0,1)">
+        </div> -->
+      </td>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelFase&amp;qFase=1603"><img src="assets/images/level/page_delete.png"
+              width="16" height="16"  alt="Borrar Fase del Proyecto"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro11" class="text-center"><img src="assets/images/level/nivel1.gif"></td>
+      <td class="Cuadro11">Preinversión </td>
+      <td class="Cuadro11">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td class="Cuadro11">
+        <div class="text-center">0.00%<img src="assets/images/level/bullet_red.gif" width="16" height="16" ></div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td width="20" class="Cuadro10">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgFase"><img src="assets/images/level/app_put.gif" width="16" height="16"
+               alt="Agregar Fase"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td width="20" class="Cuadro10"></td>
+      <td width="20" class="Cuadro10"></td>
+      <td width="30	" class="Cuadro10">
+        <div class="text-center">Nivel</div>
+      </td>
+      <td width="35%" class="Cuadro10">
+        <div class="text-center">Descripción</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Fas/Proy</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Eta/Fas</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Comp/Eta</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Act/Comp</div>
+      </td>
+      <td width="15%" class="Cuadro10">
+        <div class="text-center">P.Tar/Act</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgEtapa&amp;qFase=1601"><img src="assets/images/level/app_put.gif"
+              width="16" height="16"  alt="Agregar Etapa"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro11">
+        <!-- <div align="left"><img style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+            alt="Cambiar Ponderación"
+            onclick="javascript:vValor=jsDato('Ingrese la ponderación de la Fase','100.00');NewWindow('cg12p_plurianual.asp?cmd=cmd_EditFase&amp;qFase=1601&amp;qPondera=' + vValor,'_self',0,0,1)">
+        </div> -->
+        <button  class="btn btn-sm fa-2x" >
+          <i class="bx bxs-edit text-primary"></i>
+        </button>
+      </td>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelFase&amp;qFase=1601"><img src="assets/images/level/page_delete.png"
+              width="16" height="16"  alt="Borrar Fase del Proyecto"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro11" class="text-center"><img src="assets/images/level/nivel1.gif"></td>
+      <td class="Cuadro11">Inversión </td>
+      <td class="Cuadro11">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td class="Cuadro11">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgComponente&amp;qEtapa=1650"><img src="assets/images/level/app_put.gif"
+              width="16" height="16"  alt="Agregar Componente"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro12">
+        <!-- <div align="left"><img style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+            alt="Cambiar Ponderación"
+            onclick="javascript:vValor=jsDato('Ingrese la ponderación de la Etapa...','100.00');NewWindow('cg12p_plurianual.asp?cmd=cgEditEtapa&amp;qEtapa=1650&amp;qPondera=' + vValor,'_self',0,0,1)">
+        </div> -->
+        <button  class="btn btn-sm fa-2x" >
+          <i class="bx bxs-edit text-primary"></i>
+        </button>
+      </td>
+      <td class="Cuadro12">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelEtapa&amp;qEtapa=1650"><img
+              src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar Etapa"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro12" class="text-center"><img src="assets/images/level/nivel2.gif"></td>
+      <td class="Cuadro12">EJECUCION </td>
+      <td class="Cuadro12"></td>
+      <td class="Cuadro12">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td class="Cuadro12">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="Cuadro11">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgActividad&amp;qComponente=4188"><img
+              src="assets/images/level/app_put.gif" width="16" height="16"  alt="Agregar Actividad"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro13">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgEditComponente&amp;qComponente=4188"><img
+              style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+              alt="Editar Componente"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-edit text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro13">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelComponente&amp;qComponente=4188"><img
+              src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar Componente"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro13" class="text-center"><img src="assets/images/level/nivel3.gif"></td>
+      <td class="Cuadro13">RECURSOS HUMANOS </td>
+      <td class="Cuadro13"></td>
+      <td class="Cuadro13"></td>
+      <td class="Cuadro13">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td class="Cuadro13">
+        <div class="text-center">100.00%</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="Cuadro14">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgTarea&amp;qActividad=8908"><img src="assets/images/level/app_put.gif"
+              width="16" height="16"  alt="Agregar Tarea"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro13">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgEditActividad&amp;qActividad=8908"><img
+              style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+              alt="Editar Actividad"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-edit text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro14">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelActividad&amp;qActividad=8908"><img
+              src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar Actividad"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro14" class="text-center"><img src="assets/images/level/nivel4plus.gif" style="cursor:pointer"></td>
+      <td class="Cuadro14">RELEVAMIENTO E IMPLEMENTACION DE SISTEMAS INFORMATICOS </td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14">
+        <div class="text-center">50.00%</div>
+      </td>
+      <td class="Cuadro14">
+        <div class="text-center">100.00%</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2" colspan="7">
+        <div id="ACT8908">
+          <table width="100%"  cellpadding="2" cellspacing="0">
+            <tbody>
+              <tr>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Nro.</div>
+                </td>
+                <td width="60%" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Tarea / Item</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Prev.</div>
+                </td>
+                <td width="40" class="Cuadro15" title="Ponderación de la Tarea respecto a la Actividad">
+                  <div class="text-center" class="Titulo5">PT-A</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Un.</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Cant.</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5"> </div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2022</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2023</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2024</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Total</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">M</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">B</div>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">1</div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div align="left">RELEVAMIENTOS DE REQUISITOS </div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">0</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">10.00%</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">u. </div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">6</div>
+                </td>
+                <td class="Cuadro3">
+                  <div class="text-end">P</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">6.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgEditTarea&amp;qTarea=25255"><img
+                        src="assets/images/level/page_edit.png" width="16" height="16"  alt="Modificar datos"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-edit text-primary"></i>
+                        </button>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgDelTarea&amp;qTarea=25255"><img
+                        src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-trash text-danger"></i>
+                        </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="Cuadro4">
+                  <div class="text-end">E</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">2</div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div align="left">ANÁLISIS Y DISEÑOS </div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">0</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">90.00%</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">u. </div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">6</div>
+                </td>
+                <td class="Cuadro3">
+                  <div class="text-end">P</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">2.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">6.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgEditTarea&amp;qTarea=25256"><img
+                        src="assets/images/level/page_edit.png" width="16" height="16"  alt="Modificar datos"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-edit text-primary"></i>
+                        </button>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgDelTarea&amp;qTarea=25256"><img
+                        src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-trash text-danger"></i>
+                        </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="Cuadro4">
+                  <div class="text-end">E</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="Cuadro14">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgTarea&amp;qActividad=8909"><img src="assets/images/level/app_put.gif"
+              width="16" height="16"  alt="Agregar Tarea"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-plus-circle text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro13">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgEditActividad&amp;qActividad=8909"><img
+              style="cursor:pointer" src="assets/images/level/page_edit.png" width="16" height="16"
+              alt="Editar Actividad"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-edit text-primary"></i>
+              </button>
+      </td>
+      <td class="Cuadro14">
+        <!-- <div align="left"><a href="cg12p_plurianual.asp?cmd=cgDelActividad&amp;qActividad=8909"><img
+              src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar Actividad"></a></div> -->
+              <button  class="btn btn-sm fa-2x" >
+                <i class="bx bxs-trash text-danger"></i>
+              </button>
+      </td>
+      <td class="Cuadro14" class="text-center"><img src="assets/images/level/nivel4plus.gif" style="cursor:pointer"></td>
+      <td class="Cuadro14">ADM. DE LA INFRAEST. TECNOLÓGICA E IMPL. SEGURIDAD DE LA INFORMACIÓN </td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14"></td>
+      <td class="Cuadro14">
+        <div class="text-center">50.00%</div>
+      </td>
+      <td class="Cuadro14">
+        <div class="text-center">100.00%</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2"></td>
+      <td class="Cuadro2" colspan="7">
+        <div id="ACT8909">
+          <table width="100%"  cellpadding="2" cellspacing="0">
+            <tbody>
+              <tr>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Nro.</div>
+                </td>
+                <td width="60%" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Tarea / Item</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Prev.</div>
+                </td>
+                <td width="40" class="Cuadro15" title="Ponderación de la Tarea respecto a la Actividad">
+                  <div class="text-center" class="Titulo5">PT-A</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Un.</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Cant.</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5"> </div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2022</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2023</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">2024</div>
+                </td>
+                <td width="40" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">Total</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">M</div>
+                </td>
+                <td width="30" class="Cuadro15">
+                  <div class="text-center" class="Titulo5">B</div>
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">1</div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div align="left">ADMINISTACIONES Y CONFIGURACIONES DE SERVIDORES DE PRODUCCIÓN </div>
+                </td>
+                <td rowspan="2" class="Cuadro2">
+                  <div class="text-center">0</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">100.00%</div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">u. </div>
+                </td>
+                <td rowspan="2" class="Cuadro1">
+                  <div class="text-end">36</div>
+                </td>
+                <td class="Cuadro3">
+                  <div class="text-end">P</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">12.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">12.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">12.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">36.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgEditTarea&amp;qTarea=25257"><img
+                        src="assets/images/level/page_edit.png" width="16" height="16"  alt="Modificar datos"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-edit text-primary"></i>
+                        </button>
+                </td>
+                <td class="Cuadro2">
+                  <!-- <div class="text-center"><a href="cg12p_plurianual.asp?cmd=cgDelTarea&amp;qTarea=25257"><img
+                        src="assets/images/level/page_delete.png" width="16" height="16"  alt="Borrar"></a></div> -->
+                        <button  class="btn btn-sm fa-2x" >
+                          <i class="bx bxs-trash text-danger"></i>
+                        </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="Cuadro4">
+                  <div class="text-end">E</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro1">
+                  <div class="text-end">0.00</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+                <td class="Cuadro2">
+                  <div class="text-center">-</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

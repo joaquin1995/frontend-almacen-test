@@ -1,0 +1,40 @@
+<app-modal-main
+
+[iconoTitulo]="'cog'"
+[tituloModal]="this.titulo"
+(funcionAceptar)="validarForma()"
+>
+
+<form autocomplete="off"  [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+
+
+  <div class="container">
+    <div class="row g-2">
+
+      <h4>1. Categoria Programatica</h4>
+      <div class="col-sm-12 mb-3">
+        <app-select-custom-binlabel
+        formControlName="nsec_categoria_programatica"
+        [arrayObjeto]="this.arraycategoriaProgramatica"
+        [formControl]="this.forma.get('nsec_categoria_programatica')"
+        [placeholder]="'Seleccione la categoria programatica'"
+        [labelCustom]="'nro_categoria_programatica'"
+        [loading]="false"
+      ></app-select-custom-binlabel>
+      </div>
+    </div>
+  </div>
+</form>
+
+  <!-- <hr>
+  <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+  <pre>
+  {{ forma.value | json }}
+</pre> -->
+
+
+</app-modal-main>

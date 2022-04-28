@@ -1,0 +1,96 @@
+<app-modal-main
+
+[iconoTitulo]="'cog'"
+[tituloModal]="'Responsable'"
+(funcionAceptar)="validarForma()"
+>
+
+
+<form  autocomplete="off" [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+
+  <div class="container">
+    <div class="row g-2">
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label  for="exampleFormControlInput1" class="form-label">Nombre</label>
+          <input type="text" formControlName="nombre" class="form-control" id="exampleFormControlInput1"
+          [class.is-invalid] ="f['nombre'].invalid && f['nombre'].touched"
+          [class.is-valid] ="f['nombre'].valid && f['nombre'].touched"
+          >
+          <small *ngIf="f['nombre'].touched && f['nombre'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">CI</label>
+          <input formControlName="ci" type="text" class="form-control" id="exampleFormControlInput1"
+          [class.is-invalid] ="f['ci'].invalid && f['ci'].touched"
+          [class.is-valid] ="f['ci'].valid && f['ci'].touched"
+          >
+          <small *ngIf="f['ci'].touched && f['ci'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Cargo</label>
+          <input  formControlName="cargo" type="text" class="form-control" id="exampleFormControlInput1"
+          [class.is-invalid] ="f['cargo'].invalid && f['cargo'].touched"
+          [class.is-valid] ="f['cargo'].valid && f['cargo'].touched"
+          >
+          <small *ngIf="f['cargo'].touched && f['cargo'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+          <input type="text" formControlName="telefono" class="form-control" id="exampleFormControlInput1"
+
+          [class.is-invalid] ="f['telefono'].invalid && f['telefono'].touched"
+          [class.is-valid] ="f['telefono'].valid && f['telefono'].touched"
+          >
+          <small *ngIf="f['telefono'].touched && f['telefono'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fecha de Inicio</label>
+          <input type="date" formControlName="fecha_inicio" class="form-control" id="exampleFormControlInput1"
+          [class.is-invalid] ="f['fecha_inicio'].invalid && f['fecha_inicio'].touched"
+          [class.is-valid] ="f['fecha_inicio'].valid && f['fecha_inicio'].touched"
+          >
+          <small *ngIf="f['fecha_inicio'].touched && f['fecha_inicio'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fecha Fin</label>
+          <input type="date" formControlName="fecha_fin" class="form-control" id="exampleFormControlInput1"
+          [class.is-invalid] ="f['fecha_fin'].invalid && f['fecha_fin'].touched"
+          [class.is-valid] ="f['fecha_fin'].valid && f['fecha_fin'].touched"
+          >
+          <small *ngIf="f['fecha_fin'].touched && f['fecha_fin'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+  <!-- <hr>
+  <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+  <pre>
+  {{ forma.value | json }}
+</pre> -->
+
+
+</app-modal-main>

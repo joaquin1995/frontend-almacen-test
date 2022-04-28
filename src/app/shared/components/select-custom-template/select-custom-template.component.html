@@ -1,0 +1,36 @@
+<!-- *ngIf="this.arrayObjeto && this.arrayObjeto.length > 0" -->
+<ng-container>
+  <ng-select
+  typeToSearchText="Escriba el nombre a buscar"
+  notFoundText="No se encontraron resultados"
+  [selectOnTab]="true"
+  [virtualScroll]="true"
+  [items]="arrayObjetoBuffer"
+  [typeahead]="input$"
+  [loading]="this.loading"
+  (scroll)="onScroll($event)"
+  (scrollToEnd)="onScrollToEnd()"
+  bindValue="num_sec"
+  [bindLabel]="labelCustom"
+  [placeholder]="this.placeholder"
+  (change)="this.changeValue($event)"
+  [formControl]="this.formControl"
+  [ngClass]="{'is-invalid border-danger': this.formControl.hasError('required') && this.formControl.touched}"
+  >
+
+
+  <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+    <div>{{item[labelCustom] }} </div>
+
+    <small>
+      <div *ngFor="let obj of this.arrayMostrarBuscarPropiedad">
+        <ng-container *ngIf="obj.bandera_mostrar">
+          <b>{{obj.titulo}}: </b>{{item[obj.propiedad]}}
+        </ng-container>
+      </div>
+    </small>
+  </ng-template>
+
+  </ng-select>
+  <div class="invalid-feedback">*Requerido</div>
+</ng-container>

@@ -1,0 +1,29 @@
+
+
+////////////////////// ESTILOS NG SELECT ///////////
+ng-select.ng-invalid.ng-touched .ng-select-container {
+  border: 1px solid #f46a6a !important;
+}
+
+ng-select.ng-valid.ng-touched .ng-select-container {
+  border: 1px solid #34c38f !important;
+}
+app-select-custom.ng-invalid.ng-touched ng-select .ng-select-container {
+  border: 1px solid #f46a6a !important;
+}
+
+app-select-custom.ng-valid.ng-touched ng-select .ng-select-container {
+  border: 1px solid #34c38f !important;
+}
+
+
+///////////////// ESTILOS CHECK ///////////////////////
+.form-check input.ng-invalid.ng-touched {
+  border: 1px solid #f46a6a !important;
+}
+.form-check input.ng-invalid.ng-touched + label {
+  color: #f46a6a !important;
+}
+.form-check label {
+  font-weight: normal !important;
+}

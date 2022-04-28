@@ -1,0 +1,46 @@
+<app-main-container (recargarChange)="reload()"
+  [col]="'col-md-8'"
+  [icon]="'bx bxs-' + (this.banderaModifica ? 'edit' : 'add-to-queue')"
+  [titulo]="(this.banderaModifica ? 'Modificar' : 'Nueva') +  this.titulo"
+  [descripcion]="(this.banderaModifica ? 'Modifica un' : 'Resgistrar nueva') +  this.titulo">
+
+  <form  *ngIf="forma" autocomplete="off"  [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+    <div class="container">
+      <div class="row mb-4">
+        <label for="tipoFase" class="col-sm-3 col-form-label">Tipo Fase</label>
+        <div class="col-sm-9">
+            <app-select-custom
+            formControlName="nsec_tipo_fase"
+            [arrayObjeto]="this.arrayTipoFase"
+            [placeholder]="'Seleccione el tipo de fase'"
+            [loading]="false"
+            atributo="descripcion"
+          ></app-select-custom>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <label for="Ponderacion" class="col-sm-3 col-form-label">Ponderacion</label>
+        <div class="col-sm-9">
+            <input type="number" formControlName="ponderacion" class="form-control" id="Ponderacion" placeholder="Ingrese el porcentaje"
+            [class.is-invalid] ="f['ponderacion'].invalid && f['ponderacion'].touched"
+            [class.is-valid] ="f['ponderacion'].valid && f['ponderacion'].touched"
+            [ngClass]="{'is-invalid border-danger': this.forma.hasError('required') && this.forma.touched}"
+            >
+            <small *ngIf="f['ponderacion'].touched && f['ponderacion'].hasError('required')" class="text-danger"> *Requerido</small>
+            <small *ngIf="f['ponderacion'].touched && f['ponderacion'].hasError('max')" class="text-danger">
+              *El valor maximo debe ser {{ f['ponderacion'].errors?.max.max }} porciento
+            </small>
+        </div>
+      </div>
+
+      <div class="text-center d-grid gap-2 d-sm-block mt-3">
+        <button  type="submit" class="btn btn-material btn-primary me-md-3"><i class="bx bx-save"></i> {{ btnText }}</button>
+        <button  (click)="cancelar()" type="button" class="btn btn-material btn-secondary"><i class="bx bx-block"></i> Cancelar</button>
+      </div>
+    </div>
+
+
+  </form>
+</app-main-container>
+
+<!-- <pre>{{this.forma.getRawValue() | json }}</pre> -->

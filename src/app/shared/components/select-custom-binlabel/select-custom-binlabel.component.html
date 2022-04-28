@@ -1,0 +1,47 @@
+
+    <!-- [class.is-invalid] ="this.isInvalid" -->
+<!-- <form [formGroup]="forma"> -->
+    <!-- <ng-container *ngIf="this.arrayObjeto.length > 0"> -->
+
+      <ng-container *ngIf="labelCustom">
+      <ng-select
+      typeToSearchText="Escriba el nombre a buscar"
+      notFoundText="No se encontraron resultados"
+      [selectOnTab]="true"
+      [virtualScroll]="true"
+      [items]="arrayObjetoBuffer"
+      [typeahead]="input$"
+      [loading]="this.loading"
+      (scroll)="onScroll($event)"
+      (scrollToEnd)="onScrollToEnd()"
+      bindValue="num_sec"
+      [bindLabel]="labelCustom"
+      [placeholder]="this.placeholder"
+      (change)="this.changeValue($event)"
+      [formControl]="this.formControl"
+      [ngClass]="{'is-invalid border-danger': this.formControl.hasError('required') && this.formControl.touched}"
+  >
+
+  </ng-select>
+  <div class="invalid-feedback">*Requerido</div>
+
+</ng-container>
+<!-- </ng-container> -->
+<!-- </form> -->
+
+
+<!-- <ng-select
+class="w-100 mr-3"
+[virtualScroll]="true"
+[loading]="loading"
+[items]="personaBuffer"
+[typeahead]="input$"
+(scroll)="onScroll($event)"
+(scrollToEnd)="onScrollToEnd()"
+bindValue="num_sec"
+bindLabel="nombre"
+placeholder="Seleccione Persona"
+formControlName="nsec_persona"
+[class.is-invalid] ="personaValido"
+>
+</ng-select> -->

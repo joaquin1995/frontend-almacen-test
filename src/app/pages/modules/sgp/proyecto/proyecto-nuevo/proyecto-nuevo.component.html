@@ -1,0 +1,30 @@
+<app-main-container (recargarChange)="reload()"
+  [col]="'col-md-12'"
+  [icon]="'bx bxs-' + (this.banderaModifica ? 'edit' : 'add-to-queue')"
+  [titulo]="(this.banderaModifica ? 'Modificar' : 'Nuevo') +  this.titulo"
+  [descripcion]="(this.banderaModifica ? 'Modifica un' : 'Resgistrar nuevo') +  this.titulo">
+
+  <form  *ngIf="forma" autocomplete="off"  [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+    <div class="container">
+
+      <div class="row mb-4">
+        <label for="categoria_programatica" class="col-sm-3 col-form-label">Categoria programatica</label>
+        <div class="col-sm-9">
+            <input type="text" formControlName="categoria_programatica" class="form-control" id="Ponderacion" placeholder="Ingrese la categoria"
+            [class.is-invalid] ="f['categoria_programatica'].invalid && f['categoria_programatica'].touched"
+            [class.is-valid] ="f['categoria_programatica'].valid && f['categoria_programatica'].touched"
+            >
+            <small *ngIf="f['categoria_programatica'].touched && f['categoria_programatica'].hasError('required')" class="text-danger"> *Requerido</small>
+
+        </div>
+      </div>
+
+      <div class="text-center d-grid gap-2 d-sm-block mt-3">
+        <button  type="submit" class="btn btn-material btn-primary me-md-3"><i class="bx bx-save"></i> {{ btnText }}</button>
+        <button  (click)="cancelar()" type="button" class="btn btn-material btn-secondary"><i class="bx bx-block"></i> Cancelar</button>
+    </div>
+    </div>
+
+
+  </form>
+</app-main-container>

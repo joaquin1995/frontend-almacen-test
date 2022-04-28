@@ -1,0 +1,11 @@
+
+
+<ol class="breadcrumb" *ngIf="router.url != '/'">
+  <li *ngIf="router.url != '/'" class="breadcrumb-item">
+      <a routerLink="/" (click)="closeSubMenus()"><i class="bx bx-home me-2"></i>Inicio</a>
+  </li>
+  <li *ngFor="let breadcrumb of breadcrumbs; let i = index;" class="breadcrumb-item">
+      <a [hidden]="i == (breadcrumbs.length - 1)" >{{breadcrumb.name}}</a>
+      <span [hidden]="i != (breadcrumbs.length - 1)"><i *ngIf="router.url == '/'" class="fa fa-home mr-2"></i>{{breadcrumb.name}}</span>
+  </li>
+</ol>

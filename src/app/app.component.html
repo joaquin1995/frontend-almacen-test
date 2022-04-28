@@ -1,0 +1,14 @@
+<router-outlet></router-outlet>
+
+<ngx-spinner
+  template="<ng-template></ng-template>"
+  type="ball-scale-multiple"
+  >
+  <!-- bdColor="rgba()" -->
+    <ng-lottie
+        [options]="{path: '/assets/lottiefiles/loading.json'}"
+        width="90px"
+        >
+    </ng-lottie>
+    <h4 class="text-white">Cargando...</h4>
+</ngx-spinner>

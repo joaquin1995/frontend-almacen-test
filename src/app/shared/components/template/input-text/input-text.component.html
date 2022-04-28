@@ -1,0 +1,16 @@
+<div class="mb-3">
+  <label *ngIf="hasLabel">{{label}}</label>
+  <div class="input-group auth-pass-inputgroup">
+    <ng-container *ngIf="control">
+      <!-- appOnlyDecimalNumber -->
+      <input  [(ngModel)]="texto" class="form-control is-invalid" [class.is-invalid]="control.invalid && control.touched"
+        [class.is-valid]="control.valid && control.touched" [placeholder]="placeholder" [type]="type"
+        (ngModelChange)="changeText($event)">
+
+
+      <div *ngIf="control.touched && control.hasError('required')" class="invalid-tooltip">
+        <span>*Requerido</span>
+      </div>
+    </ng-container>
+  </div>
+</div>

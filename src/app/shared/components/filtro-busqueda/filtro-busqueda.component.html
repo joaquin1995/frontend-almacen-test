@@ -1,0 +1,40 @@
+<form [formGroup]="forma" (ngSubmit) = "buscarPaginado()"  class="mt-4">
+  <!-- <pre>{{this.forma.value | json}}</pre> -->
+  <div class="row">
+
+      <div class="mb-3 col-md-1">
+          <strong><label class="fw-bold">Mostrar:</label></strong>
+
+      </div>
+      <div class="mb-3 col-md-1">
+          <select  formControlName="mostrar" name="mostrar" class="form-select" >
+              <option *ngFor="let item of filtros.top; let i = index"   [value]="item">
+                  {{item }}
+              </option>
+              <!-- <option selected value="10">10</option>
+              <option value="30">30</option>
+              <option value="50">50</option> -->
+
+          </select>
+      </div>
+      <div class="mb-3 col-md-1">
+          <strong><label class="fw-bold">Filtro:</label></strong>
+      </div>
+      <div class="mb-3 col-md-3">
+          <select  formControlName="parametro" name="parametro" class="form-select">
+                  <option *ngFor="let item of filtros.parametros"   [attr.selected]="item.select ? true : null"  [value]="item.value">
+                      {{item.nombre}}
+                  </option>
+          </select>
+
+      </div>
+      <div class="mb-3 col-md-4">
+          <input  formControlName="valor" name="valor" type="text" class="form-control"
+              i placeholder="Escriba el dato a buscar y presione Enter">
+      </div>
+      <div class="mb-3 col-md-2 text-center">
+          <button type="submit"  class="btn btn-material btn-sm btn-primary w-100"><i
+                  class="fa fa-search"></i> Buscar</button>
+      </div>
+  </div>
+</form>

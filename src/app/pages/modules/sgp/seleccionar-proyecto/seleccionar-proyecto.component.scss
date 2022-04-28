@@ -1,0 +1,37 @@
+.navbar-header {
+  box-shadow: 0px 3px 5px 0px rgb(0 115 59 / 30%);
+}
+
+#page-topbar {
+  background-color: #00733b;
+}
+
+.header-item {
+  color: #e9ecef;
+}
+
+img{
+  height: 50px;
+}
+
+.header-profile-user {
+  height: 36px;
+  width: 36px;
+  background-color: #f6f6f6;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.border-gad03 {
+  box-shadow: 0 0.1px 3px 0 #902a8b, 0 0.1px 6px 0 rgb(0 0 0 / 12%);
+  border-radius: 10px!important;
+}
+
+.bg-gad03 {
+  background-color: #91298c!important;
+}
+
+.img-fluid, .img-thumbnail {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,78 @@
+<app-modal-main
+[iconoTitulo]="'cog'"
+[tituloModal]="'Mostrar Archivo'"
+(funcionAceptar)="validar()"
+>
+
+  <form [formGroup]="forma">
+
+      <div class="form-group">
+
+
+
+
+
+          <div class="col-md-12 mb-3">
+
+              <label style="font-size: 15px;">Archivos Cargados</label>
+
+              <div class="custom-file">
+
+                  <ng-container *ngIf="!this.archivo else subirArchivo">
+                    <div class="col-md-12 mb-3">
+                      <label for="nombreArchivo">Nombre del Archivo</label>
+                      <input type="text" class="form-control"
+                      formControlName="nombre"
+                      [class.is-invalid] ="f['nombre'].invalid && f['nombre'].touched"
+                      [class.is-valid] ="f['nombre'].valid && f['nombre'].touched"
+                       placeholder="Nombre del Archivo">
+                       <small *ngIf="f['nombre'].touched && f['nombre'].hasError('required')" class="text-danger"> *Requerido</small>
+
+
+                    </div>
+
+
+                      <app-archivo-uploader formControlName="archivo"></app-archivo-uploader>
+                      <small *ngIf="nsecArchivoValido" class="text-danger">Campo Requerido</small>
+                  </ng-container>
+
+                  <ng-template   #subirArchivo>
+                    <div  style="border-top : 1px solid #00733b; border-right : 1px solid #00733b; border-left : 1px solid #00733b;">
+
+                     <div class="class-flex mb-2"   *ngFor="let x of datos"   style="border-bottom : 1px solid #00733b; padding: 2px;" >
+                      <!-- <label style="flex-basis: 20%; color: #EA088B; margin-left: 40px;  " >{{x.nombre}}</label> -->
+                      <span style="flex: 0 1 50%; font-size: 15px;  margin-left: 25px;" ngbTooltip="Nombre de Archivo" class="badge bg-success bg">{{x.nombre  | uppercase }}</span>
+
+                      <button (click)="this.traerArhivoPorNombre(x.nsec_archivo + '.' + x.ext)" ngbTooltip="Visualizar Archivo" appSkin class="btn btn-primary btn-material mx-3 bottom-archivo" type="button"><i class="fa fa-eye"></i> </button>
+                      <button *ngIf="x.estado === 'AC'" (click)="this.modificarArchivo()" class="btn btn-warning text-white mx-3" ngbTooltip="Cambiar archivo"><i class='bx bx-revision font-25'></i></button>
+                      <br>
+                     </div>
+                    </div>
+
+                  </ng-template>
+
+
+
+              </div>
+          </div>
+
+      </div>
+
+
+      <!-- <button type="submit" class="btn btn-block" appSkin><i class="fa fa-save"></i> Aceptar</button>
+      <button type="button" class="btn btn-secondary btn-block" (click)="bsModalRef.hide()"><i class="fa fa-ban"></i> Cancelar</button> -->
+      <!-- <hr>
+      <pre>
+      Estado del formulario: {{ forma.valid }}
+      <br>
+      Status: {{ forma.status }}
+    </pre>
+      <pre>
+      {{ forma.value | json }}
+    </pre> -->
+
+  </form>
+
+
+
+</app-modal-main>
