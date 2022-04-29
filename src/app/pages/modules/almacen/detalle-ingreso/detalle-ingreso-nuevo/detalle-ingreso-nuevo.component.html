@@ -1,0 +1,164 @@
+<app-main-container
+  (recargarChange)="reload()"
+  [col]="'col-md-8'"
+  [icon]="'bx bxs-' + (this.banderaModifica ? 'edit' : 'add-to-queue')"
+  [titulo]="(this.banderaModifica ? 'Modificar' : 'Nuevo') + 'Detalle Ingresos'"
+  [descripcion]="
+    (this.banderaModifica ? 'Modifica un' : 'Resgistrar nuevo') +
+    ' Detalle Ingresos en el Sistema'
+  "
+>
+  <!-- <pre>{{this.forma.value | json}}</pre> -->
+
+  <form [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+    <div class="container">
+      <div class="row g-2">
+        <div class="col-sm-6">
+          <label for="">Productos</label>
+          <app-select-custom-template
+            formControlName="nsec_producto"
+            [arrayObjeto]="this.arrayProductos"
+            [formControl]="this.forma.get('nsec_producto')"
+            [placeholder]="'Seleccione el producto'"
+            [loading]="false"
+          >
+          </app-select-custom-template>
+        </div>
+        <div class="col-sm-6">
+          <label for="">Cantidad</label>
+
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Ingrese la cantidad"
+            formControlName="cantidad"
+            [class.is-invalid]="f['cantidad'].invalid && f['cantidad'].touched"
+            [class.is-valid]="f['cantidad'].valid && f['cantidad'].touched"
+          />
+        </div>
+        <div class="col-sm-6">
+          <label for="">Precio por unidad</label>
+
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Ingrese la unidad"
+            formControlName="precio"
+            [class.is-invalid]="f['precio'].invalid && f['precio'].touched"
+            [class.is-valid]="f['precio'].valid && f['precio'].touched"
+          />
+        </div>
+        <div class="col-sm-6">
+          <label for="">Precio X Cantidad (Bs)</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{
+              this.forma.get('precio').value * this.forma.get('cantidad').value
+            }}"
+            disabled="true"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Impuesto</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{ this.objIngreso.impuesto }}"
+            disabled="true"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Precio X Cantidad X impuesto (Bs)</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{
+              ((this.forma.get('precio').value *
+                this.forma.get('cantidad').value) /
+                100) *
+                this.objIngreso.impuesto
+            }}"
+            disabled="true"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Precio unidad X impuesto (Bs)</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{
+              (this.forma.get('precio').value * this.objIngreso.impuesto) / 100
+            }}"
+            disabled="true"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Calcular Ganacia (%)</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="ganancias"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Precio unidad X Ganancias (Bs)</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{
+              (this.forma.get('precio').value * this.forma.get('ganancias').value) / 100
+            }}"
+            disabled="true"
+          />
+        </div>
+
+        <div class="col-sm-6">
+          <label for="">Impuesto + Ganancias + precio U (Bs) </label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{
+             ((this.forma.get('precio').value *this.forma.get('ganancias').value) / 100) +
+             ((this.forma.get('precio').value)) +
+              ((this.forma.get('precio').value * this.objIngreso.impuesto) / 100)
+            }}"
+            disabled="true"
+          />
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- <hr />
+    <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+    <pre>
+  {{ forma.value | json }}
+
+</pre
+    > -->
+
+    <div class="text-center d-grid gap-2 d-sm-block mt-3">
+      <button type="submit" class="btn btn-material btn-primary me-md-3">
+        <i class="bx bx-save"></i> Guardar
+      </button>
+      <button
+        (click)="this.cancelar()"
+        type="button"
+        class="btn btn-material btn-secondary"
+      >
+        <i class="bx bx-block"></i> Cancelar
+      </button>
+    </div>
+  </form>
+</app-main-container>

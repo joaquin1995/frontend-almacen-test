@@ -1,0 +1,78 @@
+<app-main-container (recargarChange)="reload()"
+  [icon]="'bx bx-search-alt'"
+  [titulo]="'Detalle Ingresos'"
+  [descripcion]="'Busca y filtra Detalle Ingresos para realizar diferentes acciones con el registro'">
+
+  <!-- <pre>{{this.parametrosBusqueda | json}}</pre> -->
+
+  <div class="mt-5">
+    <app-filtro-busqueda
+    [valorSeleccionado]="this.valorSeleccionado"
+    [parametroSeleccionado]="this.parametroSeleccionado"
+    [cantidadMostrarSeleccionado]="this.cantidadMostrarSeleccionado"
+    [filtros]="filtros" (buscar)="buscarFiltro($event)"></app-filtro-busqueda>
+  </div>
+
+  <div class="mt-3">
+    <ngx-datatable  class="bootstrap"
+        [rows]="this.arrayDatos"
+        [headerHeight]="40"
+        [columnMode]="'force'"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [loadingIndicator]="this.banderaCargando"
+        [externalPaging]="true"
+        [count]="paginado.totalElementos"
+        [limit]="paginado.cantidadMostrar"
+        [offset]="paginado.numeroPaginaActual"
+        [messages]="{emptyMessage: 'Ningún resultado encontrado', totalMessage: 'total'}"
+        (page)="buscarPaginado($event)"
+        [scrollbarH]="true"
+        >
+
+
+<!--
+        <ngx-datatable-column name="Acciones" prop="num_sec">
+            <ng-template ngx-datatable-cell-template let-row="row">
+                <div class="text-right">
+                    <span data-label="Acciones">
+
+                        <button (click)="this.modificar(row)" class="btn btn-sm fa-2x" [ngbTooltip]="'Modificar Registro'" [placement]="'right'">
+                            <i class="bx bxs-pencil text-primary"></i>
+                        </button>
+
+                        <button (click)="this.eliminar(row)" class="btn btn-sm fa-2x" [ngbTooltip]="'Eliminar Registro'" [placement]="'right'">
+                            <i class="bx bxs-trash text-danger"></i>
+                        </button>
+
+                    </span>
+                </div>
+            </ng-template>
+        </ngx-datatable-column> -->
+
+
+
+
+        <ngx-datatable-column name="Cantidad" prop="cantidad">
+            <ng-template ngx-datatable-cell-template let-value="value">
+                <span data-label="Nombres">{{value}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Precio" prop="precio">
+          <ng-template ngx-datatable-cell-template let-value="value">
+              <span data-label="Nombres">{{value}}</span>
+          </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Producto" prop="nombre">
+        <ng-template ngx-datatable-cell-template let-value="value">
+            <span data-label="Nombres">{{value}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+
+    </ngx-datatable>
+  </div>
+
+</app-main-container>

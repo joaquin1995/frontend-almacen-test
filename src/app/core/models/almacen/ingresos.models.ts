@@ -1,7 +1,7 @@
 export interface Ingresos {
   num_sec: number;
   nsec_proveedor: number;
-  nsec_usuario: number;
+  nsec_ususario: number;
   tipo_comprobante: string;
   serie_comprobante: string;
   num_comprobante: string;
@@ -15,7 +15,9 @@ export interface Ingresos {
 export interface IngresosListado {
   num_sec: number;
   nsec_proveedor: number;
-  nsec_usuario: number;
+  proveedro: string;
+  nsec_ususario: number;
+  usuario: string;
   tipo_comprobante: string;
   serie_comprobante: string;
   num_comprobante: string;

@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'categoria', loadChildren: () => import('./modules/almacen/categoria/categoria.module').then(m => m.CategoriaModule), },
   { path: 'marca', loadChildren: () => import('./modules/almacen/marca/marca.module').then(m => m.MarcaModule), },
   { path: 'producto', loadChildren: () => import('./modules/almacen/producto/producto.module').then(m => m.ProductoModule), },
+  { path: 'ingreso', loadChildren: () => import('./modules/almacen/ingreso/ingreso.module').then(m => m.IngresoModule), },
+  { path: 'detalle-ingreso', loadChildren: () => import('./modules/almacen/detalle-ingreso/detalle-ingreso.module').then(m => m.DetalleIngresoModule), },
 ];
 
 @NgModule({

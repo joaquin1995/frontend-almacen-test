@@ -33,8 +33,7 @@
               "src/styles.scss",
               "src/assets/scss/bootstrap.scss",
               "src/assets/scss/app.scss",
-              "src/assets/scss/icons.scss",
-              "node_modules/animate.css/animate.min.css"
+              "src/assets/scss/icons.scss"
             ],
             "scripts": [],
             "vendorChunk": true,

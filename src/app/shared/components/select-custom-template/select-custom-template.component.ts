@@ -18,34 +18,35 @@ import { MetodosGlobales, ParametrosCustomSelectTemnplate } from 'src/app/core';
 export class SelectCustomTemplateComponent implements OnInit {
 
   @Input() arrayObjeto: any[];
-  @Input() labelCustom: string;
+  @Input() labelCustom: string = 'nombre';
   @Input() placeholder: string;
   @Input() formControl: FormControl;
   @Input() loading: boolean = false;
+
   @Input() arrayMostrarBuscarPropiedad: ParametrosCustomSelectTemnplate[] = [
     {
       propiedad: 'nombre'
-      , titulo: 'Nombre'
+      , titulo: 'Producto'
       , bandera_mostrar: true
       , bandera_buscar: true
     }
     , {
-      propiedad: 'apellido_paterno'
-      , titulo: 'Apellido Paterno'
+      propiedad: 'stock'
+      , titulo: 'Stock'
       , bandera_mostrar: true
-      , bandera_buscar : true
+      , bandera_buscar: true
     }
     , {
-      propiedad: 'apellido_materno'
-      , titulo: 'Apellido Materno'
+      propiedad: 'precio_venta'
+      , titulo: 'Precio de venta'
       , bandera_mostrar: true
-      , bandera_buscar : true
+      , bandera_buscar: true
     }
     , {
-      propiedad: 'numero_documento_identificacion'
-      , titulo: 'Documento'
+      propiedad: 'codigo'
+      , titulo: 'codigo'
       , bandera_mostrar: true
-      , bandera_buscar : true
+      , bandera_buscar: true
     }
   ]
 
@@ -164,7 +165,7 @@ export class SelectCustomTemplateComponent implements OnInit {
         if (index > 0) {
           auxCondicion = `${auxCondicion} || `;
         }
-        auxCondicion = `${auxCondicion?auxCondicion:''}'${objeto[element.propiedad]}'.indexOf('${auxValorABuscar}') >= 0`;
+        auxCondicion = `${auxCondicion ? auxCondicion : ''}'${objeto[element.propiedad]}'.indexOf('${auxValorABuscar}') >= 0`;
       }
     }
     const hola = 'sd';

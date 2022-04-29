@@ -1,0 +1,91 @@
+<app-main-container (recargarChange)="reload()"
+  [col]="'col-md-8'"
+  [icon]="'bx bxs-' + (this.banderaModifica ? 'edit' : 'add-to-queue')"
+  [titulo]="(this.banderaModifica ? 'Modificar' : 'Nuevo') + ' Ingresos'"
+  [descripcion]="(this.banderaModifica ? 'Modifica un' : 'Resgistrar nuevo') + ' Ingresos en el Sistema'">
+
+  <!-- <pre>{{this.forma.value | json}}</pre> -->
+
+  <form [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+
+    <div class="container overflow-hidden">
+      <div class="row gy-5">
+        <div class="col-sm-6">
+          <div class="form-floating mb-2 position-relative">
+            <input type="text" class="form-control" placeholder="Escriba un tipo"
+            formControlName="tipo_comprobante"
+            [class.is-invalid] ="f['tipo_comprobante'].invalid && f['tipo_comprobante'].touched"
+            [class.is-valid] ="f['tipo_comprobante'].valid && f['tipo_comprobante'].touched">
+            <label>Tipo de comprobante</label>
+            <div class="invalid-feedback">*Requerido</div>
+          </div>
+
+        </div>
+        <div class="col-sm-6">
+
+          <div class="form-floating mb-2 position-relative">
+            <input type="text" class="form-control" placeholder="Escriba un tipo"
+            formControlName="serie_comprobante"
+            [class.is-invalid] ="f['serie_comprobante'].invalid && f['serie_comprobante'].touched"
+            [class.is-valid] ="f['serie_comprobante'].valid && f['serie_comprobante'].touched">
+            <label>Serie del comprobante</label>
+            <div class="invalid-feedback">*Requerido</div>
+          </div>
+
+        </div>
+        <div class="col-sm-6">
+          <div class="form-floating mb-2 position-relative">
+            <input type="text" class="form-control" placeholder="Escriba un tipo"
+            formControlName="num_comprobante"
+            [class.is-invalid] ="f['num_comprobante'].invalid && f['num_comprobante'].touched"
+            [class.is-valid] ="f['num_comprobante'].valid && f['num_comprobante'].touched">
+            <label>Numero del comprobante</label>
+            <div class="invalid-feedback">*Requerido</div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+
+          <div class="form-floating mb-2 position-relative">
+            <input type="text" class="form-control" placeholder="Escriba un tipo"
+            formControlName="impuesto"
+            [class.is-invalid] ="f['impuesto'].invalid && f['impuesto'].touched"
+            [class.is-valid] ="f['impuesto'].valid && f['impuesto'].touched">
+            <label>Impuesto</label>
+            <div class="invalid-feedback">*Requerido</div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+          <div class="form-floating mb-2 position-relative">
+            <input type="text" class="form-control" placeholder="Escriba un tipo"
+            formControlName="total_ingresos"
+            [class.is-invalid] ="f['total_ingresos'].invalid && f['total_ingresos'].touched"
+            [class.is-valid] ="f['total_ingresos'].valid && f['total_ingresos'].touched">
+            <label>Total Ingresos</label>
+            <div class="invalid-feedback">*Requerido</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+      <!-- <hr>
+  <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+  <pre>
+  {{ forma.value | json }}
+
+</pre> -->
+
+    <div class="text-center d-grid gap-2 d-sm-block mt-3">
+        <button type="submit" class="btn btn-material btn-primary me-md-3"><i class="bx bx-save"></i> Guardar</button>
+        <button (click)="this.cancelar()" type="button" class="btn btn-material btn-secondary"><i class="bx bx-block"></i> Cancelar</button>
+    </div>
+  </form>
+</app-main-container>

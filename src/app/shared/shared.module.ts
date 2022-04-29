@@ -22,6 +22,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { SelectCustomComponent } from './components/select-custom/select-custom.component';
 import { MensajeVacioComponent } from './components/mensaje-vacio/mensaje-vacio.component';
 import { SelectCustomTemplateComponent } from './components/select-custom-template/select-custom-template.component';
+import { SelectCustomBinlabelComponent } from './components/select-custom-binlabel/select-custom-binlabel.component';
 import { FiltroBusquedaComponent } from './components/filtro-busqueda/filtro-busqueda.component';
 
 export function playerFactory() {
@@ -42,6 +43,7 @@ export function playerFactory() {
     ErrorPageComponent,
     SelectCustomComponent,
     SelectCustomTemplateComponent,
+    SelectCustomBinlabelComponent,
     MensajeVacioComponent,
     FiltroBusquedaComponent,
 
@@ -72,6 +74,7 @@ export function playerFactory() {
     MensajeVacioComponent,
     NgSelectModule,
     SelectCustomTemplateComponent,
+    SelectCustomBinlabelComponent,
     FiltroBusquedaComponent,
     NgxDatatableModule
 

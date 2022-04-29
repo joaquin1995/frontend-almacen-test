@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DetalleIngresos, Fase } from '../../models';
+import { Ingresos } from '../../models/almacen';
 import { ApiService } from '../admin/api.service';
 
 @Injectable({ providedIn: 'root' })
-export class DetalleIngresosService {
+export class IngresosService {
   parametros: string;
-  urlPath = '/api/DetalleIngresos/';
+  urlPath = '/api/Ingresos/';
 
   constructor(private apiService: ApiService) { }
 
@@ -21,12 +21,12 @@ export class DetalleIngresosService {
       .pipe(map(data => data));
   }
 
-  guardar(modelo: DetalleIngresos): Observable<any> {
+  guardar(modelo: Ingresos): Observable<any> {
     return this.apiService.post(this.urlPath, modelo, true)
       .pipe(map(data => data));
   }
 
-  modificar(modelo: DetalleIngresos): Observable<any> {
+  modificar(modelo: Ingresos): Observable<any> {
     return this.apiService.put(`${this.urlPath}`, modelo)
       .pipe(map(data => data));
   }
