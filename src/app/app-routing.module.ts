@@ -15,7 +15,7 @@ const routes: Routes = [
       //  menu: AppMenuResolver
     }, component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
-  { path: 'area-trabajo/seleccionar', loadChildren: () => import('./pages/modules/sgp/seleccionar-proyecto/seleccionar-proyecto.module').then(m => m.SeleccionarProyectoModule) },
+
   // { path: 'seleccionar-proyecto', loadChildren: () => import('./pages/modules/sgp/seleccionar-proyecto/seleccionar-proyecto.module').then(m => m.SeleccionarProyectoModule), resolve: { isAuthenticated: AppAuthResolver }, canActivate: [AuthGuard]  },
   { path: '**', component: Page404Component },
 ];
