@@ -3,22 +3,22 @@ import { Router } from '@angular/router';
 import { AlertUtils, Filtro, LoadingService, MainContainerService, MetodosGlobales, Paginado, ParametrosBusqueda, SharedDataService } from '@core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CategoriasListado } from 'src/app/core/models/almacen';
-import { CategoriaService } from 'src/app/core/services/almacen';
+import { MarcasListado } from 'src/app/core/models/almacen';
+import { MarcasService } from 'src/app/core/services/almacen';
 
 @Component({
-  selector: 'app-buscar',
-  templateUrl: './buscar.component.html',
-  styleUrls: ['./buscar.component.scss']
+  selector: 'app-marca-buscar',
+  templateUrl: './marca-buscar.component.html',
+  styleUrls: ['./marca-buscar.component.scss']
 })
-export class BuscarComponent implements OnInit {
+export class MarcaBuscarComponent implements OnInit {
 
   private unsubscribe$: Subject<void> = new Subject();
   parametrosBusqueda: ParametrosBusqueda = {} as ParametrosBusqueda;
   filtros: Filtro = {} as Filtro;
   paginado = new Paginado();
   banderaCargando = false;
-  arrayDatos: CategoriasListado[] = [];
+  arrayDatos: MarcasListado[] = [];
   banderaConservaBusqueda = false;
   valorSeleccionado = null;
   parametroSeleccionado = null;
@@ -31,12 +31,12 @@ export class BuscarComponent implements OnInit {
     , private router: Router
     , private alertUtils: AlertUtils
     , private loadingService: LoadingService
-    , private categoriaService: CategoriaService
+    , private marcasService: MarcasService
   ) {
 
     this.filtros = {
       parametros: [
-        { nombre: 'Nombre', value: 'c.nombre', select: true },
+        { nombre: 'Nombre', value: 'm.nombre', select: true },
         // { nombre: 'Num Sec', value: 'num_sec', select: false },
       ],
     }
@@ -101,7 +101,7 @@ export class BuscarComponent implements OnInit {
   buscarPaginado(numeroPagina: any) {
     this.banderaCargando = true;
     this.paginado.numeroPaginaActual = numeroPagina.offset;
-    this.categoriaService.buscarPaginado(
+    this.marcasService.buscarPaginado(
       this.parametrosBusqueda.valor,
       this.parametrosBusqueda.parametro,
       this.paginado.numeroPaginaActual,
@@ -114,7 +114,7 @@ export class BuscarComponent implements OnInit {
         console.log(data);
         this.paginado.totalElementos = Number(data.total);
         this.paginado.cantidadMostrar = this.paginado.cantidadMostrar;
-        this.arrayDatos = data.response as CategoriasListado[];
+        this.arrayDatos = data.response as MarcasListado[];
         this.contenedorService.ok();
       },
         error => {
@@ -125,7 +125,7 @@ export class BuscarComponent implements OnInit {
       );
   }
 
-  modificar(row: CategoriasListado): void {
+  modificar(row: MarcasListado): void {
     this.banderaConservaBusqueda = true;
     this.sharedDataService.changeObjBusquedaListado({
       paginaActual: this.paginado.numeroPaginaActual
@@ -134,13 +134,13 @@ export class BuscarComponent implements OnInit {
       , valorBusqueda: this.parametrosBusqueda.valor
     });
     this.sharedDataService.changeObjShared(row);
-    this.router.navigateByUrl('/categoria/modificar');
+    this.router.navigateByUrl('/marca/modificar');
   }
 
-  eliminar(objeto: CategoriasListado) {
+  eliminar(objeto: MarcasListado) {
     this.alertUtils.alertDelete(() => {
       this.loadingService.changeLoading(true);
-      this.categoriaService.eliminar(objeto.num_sec.toString())
+      this.marcasService.eliminar(objeto.num_sec.toString())
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(respuesta => {
           this.loadingService.changeLoading(false);

@@ -7,7 +7,7 @@ export interface Categrias {
   updated_at: string;
 };
 
-export interface CategriasListado {
+export interface CategoriasListado {
   num_sec: number;
   nombre: string;
   descripcion: string;

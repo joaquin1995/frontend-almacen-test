@@ -1,0 +1,116 @@
+
+<app-main-container (recargarChange)="reload()"
+[col]="'col-md-8'"
+[icon]="'bx bxs-' + (this.banderaModifica ? 'edit' : 'add-to-queue')"
+[titulo]="(this.banderaModifica ? 'Modificar' : 'Nuevo') + ' Productos'"
+[descripcion]="(this.banderaModifica ? 'Modifica un' : 'Resgistrar nuevo') + ' Productos en el Sistema'">
+
+<!-- <pre>{{this.forma.value | json}}</pre> -->
+
+<form [formGroup]="this.forma" (ngSubmit)="this.validarForma()">
+
+
+    <div class="container overflow-hidden">
+        <div class="row gy-5">
+          <div class="col-sm-6">
+            <label class="ms-2">Categoria</label>
+        
+              <app-select-custom
+                formControlName="nsec_categoria"
+                [arrayObjeto]="this.arrayCategorias"
+                [placeholder]="'Seleccione la categoria'"
+                [loading]="false"
+              ></app-select-custom>
+          </div>
+          <div class="col-sm-6">
+            <label class="ms-2">Marca</label>
+        
+            <app-select-custom
+              formControlName="nsec_marca"
+              [arrayObjeto]="this.arrayMarcas"
+              [placeholder]="'Seleccione la marca'"
+              [loading]="false"
+            ></app-select-custom>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating mb-3 position-relative">
+                <input type="number" class="form-control" placeholder="Precio de venta"
+                formControlName="precio_venta"
+                [class.is-invalid] ="f['precio_venta'].invalid && f['precio_venta'].touched"
+                [class.is-valid] ="f['precio_venta'].valid && f['precio_venta'].touched">
+                <label>Precion de venta</label>
+                <div class="invalid-feedback">*Requerido</div>
+              </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating mb-3 position-relative">
+                <input type="text" class="form-control" placeholder="Nombre"
+                formControlName="nombre"
+                [class.is-invalid] ="f['nombre'].invalid && f['nombre'].touched"
+                [class.is-valid] ="f['nombre'].valid && f['nombre'].touched">
+                <label>Nombre</label>
+                <div class="invalid-feedback">*Requerido</div>
+              </div>
+          </div>
+       
+          <div class="col-sm-12 mb-3">
+            <div class="form-floating">
+                <textarea   formControlName="descripcion" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                [class.is-invalid] ="f['descripcion'].invalid && f['descripcion'].touched"
+                [class.is-valid] ="f['descripcion'].valid && f['descripcion'].touched"
+                ></textarea>
+                <label for="floatingTextarea">Descripcion</label>
+                <div class="invalid-feedback">*Requerido</div>
+
+              </div>
+          </div>
+          <!-- <div class="col-sm-6">
+            <div class="p-3 border bg-light">Custom column padding</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 border bg-light">Custom column padding</div>
+          </div> -->
+        </div>
+      </div>
+  <!-- <div class="col py-3">
+
+    <div class="form-floating mb-3 position-relative">
+      <input type="text" class="form-control" placeholder="Escriba un tipo"
+      formControlName="nombre"
+      [class.is-invalid] ="f['nombre'].invalid && f['nombre'].touched"
+      [class.is-valid] ="f['nombre'].valid && f['nombre'].touched">
+      <label>Nombre</label>
+      <div class="invalid-feedback">*Requerido</div>
+    </div>
+    <div class="form-floating mb-3 position-relative">
+      <input type="text" class="form-control" placeholder="Escriba un tipo"
+      formControlName="descripcion"
+      [class.is-invalid] ="f['descripcion'].invalid && f['descripcion'].touched"
+      [class.is-valid] ="f['descripcion'].valid && f['descripcion'].touched">
+      <label>Descripcion</label>
+      <div class="invalid-feedback">*Requerido</div>
+    </div>
+
+  </div>
+
+  <div class="text-center d-grid gap-2 d-sm-block">
+      <button type="submit" class="btn btn-material btn-primary me-md-3"><i class="bx bx-save"></i> Guardar</button>
+      <button (click)="this.cancelar()" type="button" class="btn btn-material btn-secondary"><i class="bx bx-block"></i> Cancelar</button>
+  </div> -->
+  <div class="text-center d-grid gap-2 d-sm-block">
+    <button type="submit" class="btn btn-material btn-primary me-md-3"><i class="bx bx-save"></i> Guardar</button>
+    <button (click)="this.cancelar()" type="button" class="btn btn-material btn-secondary"><i class="bx bx-block"></i> Cancelar</button>
+</div>
+</form>
+
+  <!-- <hr>
+  <pre>
+  Estado del formulario: {{ forma.valid }}
+  <br>
+  Status: {{ forma.status }}
+</pre>
+  <pre>
+  {{ forma.value | json }}
+
+</pre>  -->
+</app-main-container>

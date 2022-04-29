@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'fase', loadChildren: () => import('./modules/sgp/fase/fase.module').then(m => m.FaseModule), },
   { path: 'etapa', loadChildren: () => import('./modules/sgp/etapa/etapa.module').then(m => m.EtapaModule), },
   { path: 'categoria', loadChildren: () => import('./modules/almacen/categoria/categoria.module').then(m => m.CategoriaModule), },
+  { path: 'marca', loadChildren: () => import('./modules/almacen/marca/marca.module').then(m => m.MarcaModule), },
+  { path: 'producto', loadChildren: () => import('./modules/almacen/producto/producto.module').then(m => m.ProductoModule), },
 ];
 
 @NgModule({

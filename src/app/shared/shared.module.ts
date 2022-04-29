@@ -7,6 +7,8 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 import { NgSelectModule } from '@ng-select/ng-select';
 import { InputTextComponent } from './components/template/input-text/input-text.component';
 import { InputPasswordComponent } from './components/template/input-password/input-password.component';
@@ -20,6 +22,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { SelectCustomComponent } from './components/select-custom/select-custom.component';
 import { MensajeVacioComponent } from './components/mensaje-vacio/mensaje-vacio.component';
 import { SelectCustomTemplateComponent } from './components/select-custom-template/select-custom-template.component';
+import { FiltroBusquedaComponent } from './components/filtro-busqueda/filtro-busqueda.component';
 
 export function playerFactory() {
   return player;
@@ -39,7 +42,9 @@ export function playerFactory() {
     ErrorPageComponent,
     SelectCustomComponent,
     SelectCustomTemplateComponent,
-    MensajeVacioComponent
+    MensajeVacioComponent,
+    FiltroBusquedaComponent,
+
   ],
   imports: [
     CommonModule,
@@ -48,7 +53,8 @@ export function playerFactory() {
     NgbModule,
     ReactiveFormsModule,
     LottieModule.forRoot({ player: playerFactory }),
-    NgSelectModule
+    NgSelectModule,
+    NgxDatatableModule
   ],
   exports: [
     FormsModule,
@@ -65,7 +71,10 @@ export function playerFactory() {
     SelectCustomComponent,
     MensajeVacioComponent,
     NgSelectModule,
-    SelectCustomTemplateComponent
+    SelectCustomTemplateComponent,
+    FiltroBusquedaComponent,
+    NgxDatatableModule
+
   ]
 })
 

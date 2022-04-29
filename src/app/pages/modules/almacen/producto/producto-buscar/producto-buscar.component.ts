@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertUtils, Filtro, LoadingService, MainContainerService, MetodosGlobales, Paginado, ParametrosBusqueda, SharedDataService } from '@core';
+import { ParametrosBusqueda, Filtro, Paginado, MainContainerService, MetodosGlobales, SharedDataService, AlertUtils, LoadingService } from '@core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CategoriasListado } from 'src/app/core/models/almacen';
-import { CategoriaService } from 'src/app/core/services/almacen';
+import { ProductosListado } from 'src/app/core/models/almacen';
+import { ProductosService } from 'src/app/core/services/almacen';
 
 @Component({
-  selector: 'app-buscar',
-  templateUrl: './buscar.component.html',
-  styleUrls: ['./buscar.component.scss']
+  selector: 'app-producto-buscar',
+  templateUrl: './producto-buscar.component.html',
+  styleUrls: ['./producto-buscar.component.scss']
 })
-export class BuscarComponent implements OnInit {
+export class ProductoBuscarComponent implements OnInit {
 
   private unsubscribe$: Subject<void> = new Subject();
   parametrosBusqueda: ParametrosBusqueda = {} as ParametrosBusqueda;
   filtros: Filtro = {} as Filtro;
   paginado = new Paginado();
   banderaCargando = false;
-  arrayDatos: CategoriasListado[] = [];
+  arrayDatos: ProductosListado[] = [];
   banderaConservaBusqueda = false;
   valorSeleccionado = null;
   parametroSeleccionado = null;
@@ -31,13 +31,14 @@ export class BuscarComponent implements OnInit {
     , private router: Router
     , private alertUtils: AlertUtils
     , private loadingService: LoadingService
-    , private categoriaService: CategoriaService
+    , private productosService: ProductosService
   ) {
 
     this.filtros = {
       parametros: [
-        { nombre: 'Nombre', value: 'c.nombre', select: true },
-        // { nombre: 'Num Sec', value: 'num_sec', select: false },
+        { nombre: 'Nombre', value: 'p.nombre', select: true },
+        { nombre: 'Categoria', value: 'c.nombre', select: false },
+        { nombre: 'Marca', value: 'm.nombre', select: false },
       ],
     }
     this.parametrosBusqueda = this.metodosGlobales.setParametrosBusquedaIniciales(this.filtros);
@@ -101,7 +102,7 @@ export class BuscarComponent implements OnInit {
   buscarPaginado(numeroPagina: any) {
     this.banderaCargando = true;
     this.paginado.numeroPaginaActual = numeroPagina.offset;
-    this.categoriaService.buscarPaginado(
+    this.productosService.buscarPaginado(
       this.parametrosBusqueda.valor,
       this.parametrosBusqueda.parametro,
       this.paginado.numeroPaginaActual,
@@ -114,7 +115,7 @@ export class BuscarComponent implements OnInit {
         console.log(data);
         this.paginado.totalElementos = Number(data.total);
         this.paginado.cantidadMostrar = this.paginado.cantidadMostrar;
-        this.arrayDatos = data.response as CategoriasListado[];
+        this.arrayDatos = data.response as ProductosListado[];
         this.contenedorService.ok();
       },
         error => {
@@ -125,7 +126,7 @@ export class BuscarComponent implements OnInit {
       );
   }
 
-  modificar(row: CategoriasListado): void {
+  modificar(row: ProductosListado): void {
     this.banderaConservaBusqueda = true;
     this.sharedDataService.changeObjBusquedaListado({
       paginaActual: this.paginado.numeroPaginaActual
@@ -134,13 +135,13 @@ export class BuscarComponent implements OnInit {
       , valorBusqueda: this.parametrosBusqueda.valor
     });
     this.sharedDataService.changeObjShared(row);
-    this.router.navigateByUrl('/categoria/modificar');
+    this.router.navigateByUrl('/producto/modificar');
   }
 
-  eliminar(objeto: CategoriasListado) {
+  eliminar(objeto: ProductosListado) {
     this.alertUtils.alertDelete(() => {
       this.loadingService.changeLoading(true);
-      this.categoriaService.eliminar(objeto.num_sec.toString())
+      this.productosService.eliminar(objeto.num_sec.toString())
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(respuesta => {
           this.loadingService.changeLoading(false);
@@ -162,5 +163,7 @@ export class BuscarComponent implements OnInit {
         });
     });
   }
+
+
 
 }

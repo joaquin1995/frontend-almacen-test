@@ -1,7 +1,7 @@
 <app-main-container (recargarChange)="reload()"
   [icon]="'bx bx-search-alt'"
-  [titulo]="'Categoria'"
-  [descripcion]="'Busca y filtra Categoria para realizar diferentes acciones con el registro'">
+  [titulo]="'Marcas'"
+  [descripcion]="'Busca y filtra Marcas para realizar diferentes acciones con el registro'">
 
   <!-- <pre>{{this.parametrosBusqueda | json}}</pre> -->
 
@@ -72,7 +72,7 @@
                 <span data-label="Nombres">{{value}}</span>
             </ng-template>
         </ngx-datatable-column>
-        
+
         <ngx-datatable-column name="Descripcon" prop="descripcion">
           <ng-template ngx-datatable-cell-template let-value="value">
               <span data-label="Nombres">{{value}}</span>

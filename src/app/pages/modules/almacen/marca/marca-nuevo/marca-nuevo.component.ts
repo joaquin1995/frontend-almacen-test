@@ -1,25 +1,26 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AlertUtils, LoadingService, MainContainerService, MetodosGlobales, SharedDataService } from '@core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MainContainerService, AlertUtils, MetodosGlobales, LoadingService, SharedDataService } from '@core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CategoriasListado } from 'src/app/core/models/almacen';
-import { CategoriaService } from 'src/app/core/services/almacen';
+import { MarcasListado } from 'src/app/core/models/almacen';
+import { MarcasService } from 'src/app/core/services/almacen';
 
 @Component({
-  selector: 'app-nuevo',
-  templateUrl: './nuevo.component.html',
-  styleUrls: ['./nuevo.component.scss']
+  selector: 'app-marca-nuevo',
+  templateUrl: './marca-nuevo.component.html',
+  styleUrls: ['./marca-nuevo.component.scss']
 })
-export class NuevoComponent implements OnInit {
+export class MarcaNuevoComponent implements OnInit {
+
 
   private unsubscribe$: Subject<void> = new Subject();
   banderaModifica = false;
   forma: FormGroup;
   get f() { return this.forma.controls; }
-  objPost: CategoriasListado = {} as CategoriasListado;
+  objPost: MarcasListado = {} as MarcasListado;
 
   constructor(
     private contenedorService: MainContainerService
@@ -30,7 +31,7 @@ export class NuevoComponent implements OnInit {
     , private loadingService: LoadingService
     , private sharedDataService: SharedDataService
     , private activatedRoute: ActivatedRoute
-    , private categoriaService: CategoriaService
+    , private marcasService: MarcasService
     , private fb: FormBuilder
 
   ) {
@@ -64,9 +65,9 @@ export class NuevoComponent implements OnInit {
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(respuesta => {
               if (!respuesta) {
-                this.router.navigateByUrl('/categoria/buscar');
+                this.router.navigateByUrl('/marca/buscar');
               } else {
-                this.traerPorNumSec(respuesta as CategoriasListado);
+                this.traerPorNumSec(respuesta as MarcasListado);
               }
             });
         } else {
@@ -95,12 +96,12 @@ export class NuevoComponent implements OnInit {
     });
   }
 
-  traerPorNumSec(objeto: CategoriasListado) {
-    this.categoriaService.traerPorCodigo(objeto.num_sec.toString())
+  traerPorNumSec(objeto: MarcasListado) {
+    this.marcasService.traerPorCodigo(objeto.num_sec.toString())
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(data => {
 
-        const auxObjeto = data.response as CategoriasListado;
+        const auxObjeto = data.response as MarcasListado;
         this.forma.patchValue(auxObjeto);
         this.contenedorService.ok();
       }, error => {
@@ -113,14 +114,14 @@ export class NuevoComponent implements OnInit {
 
     this.actualizarForma(this.forma.getRawValue());
     this.loadingService.changeLoading(true);
-    this.categoriaService.guardar(this.objPost)
+    this.marcasService.guardar(this.objPost)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(respuesta => {
         this.loadingService.changeLoading(false);
         // if (!this.metodosGlobales.validaError(respuesta)) {
         //   return;
         // }
-        this.router.navigateByUrl('/categoria/buscar');
+        this.router.navigateByUrl('/marca/buscar');
       }, error => {
         console.log(error);
       });
@@ -130,14 +131,14 @@ export class NuevoComponent implements OnInit {
 
     this.actualizarForma(this.forma.getRawValue());
     this.loadingService.changeLoading(true);
-    this.categoriaService.modificar(this.objPost)
+    this.marcasService.modificar(this.objPost)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(respuesta => {
         this.loadingService.changeLoading(false);
         // if (!this.metodosGlobales.validaError(respuesta)) {
         //   return;
         // }
-        this.router.navigateByUrl('/categoria/buscar');
+        this.router.navigateByUrl('/marca/buscar');
       }, error => {
         console.log(error);
       });
@@ -150,5 +151,4 @@ export class NuevoComponent implements OnInit {
   cancelar(): void {
     this.location.back();
   }
-
 }

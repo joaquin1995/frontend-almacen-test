@@ -7,6 +7,7 @@ export interface Productos {
   nombre: string;
   precio_venta: number;
   descripcion: string;
+  stock: number;
   estado: string;
   created_at: string;
   updated_at: string;
@@ -15,12 +16,15 @@ export interface Productos {
 export interface ProductosListado {
   num_sec: number;
   nsec_categoria: number;
+  categoria?: string;
   nsec_marca: number;
+  marca?: string;
   codigo: string;
   ruta: string;
   nombre: string;
   precio_venta: number;
   descripcion: string;
+  stock: number;
   estado: string;
   created_at: string;
   updated_at: string;

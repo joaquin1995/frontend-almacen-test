@@ -15,7 +15,7 @@ const routes: Routes = [
     data: { breadcrumb: 'Categoria / Buscar' }
   },
   {
-    path: 'modificar/:num_sec',
+    path: 'modificar',
     component: NuevoComponent,
     data: { breadcrumb: 'Categoria / Modificar' }
   }
